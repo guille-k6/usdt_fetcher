@@ -1,5 +1,6 @@
 import { schedule } from 'node-cron';
 import { MongoClient } from 'mongodb';
+import 'dotenv/config';
 
 const providers = ["belo", "binance", "bitmonedero", "buenbit", "lemoncash", "ripio"];
 const urls = [];
@@ -57,7 +58,7 @@ schedule('0 * * * *', async () => {
 
 console.log('Scheduler started.');
 
-const uri = DB_URI;
+const uri = process.env.MONGODB_URI_NEW;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 export async function connectToDatabase() {
