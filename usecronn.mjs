@@ -51,7 +51,7 @@ async function fetchDataAndSaveToMongo() {
 }
 
 // Schedule the task to run every hour
-schedule('0 * * * *', async () => {
+schedule('* * * * *', async () => {
   console.log('Running the task...');
   await fetchDataAndSaveToMongo();
 });
