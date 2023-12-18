@@ -30,8 +30,7 @@ const fetchAllData = async () => {
         });
 
         // I unify the timestamp to simplify things later.
-        const firstTimestamp = updatedResults.length > 0 ? updatedResults[0].time : 0;
-        const finalResults = updatedResults.map(response => ({ ...response, time: firstTimestamp }));
+        const finalResults = updatedResults.map(response => ({ ...response, time: Date.now() }));
 
       return finalResults;
       
